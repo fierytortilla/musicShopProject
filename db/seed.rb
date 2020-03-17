@@ -1,28 +1,54 @@
 require_relative("../models/music_item")
 require_relative("../models/user")
+require_relative("../models/category")
+require_relative("../models/inventory")
+require_relative("../models/purchase")
+require("pry-byebug")
 
 MusicItem.delete_all()
 User.delete_all()
-Categories.delete_all()
+Category.delete_all()
+Inventory.delete_all()
+Purchase.delete_all()
 
-category1 = Category.new({'name'=>'guitars'})
-category2 = Category.new({'name'=>'bass'})
-category3 = Category.new({'name'=>'drums'})
-category4 = Category.new({'name'=>'effect pedals'})
-category5 = Category.new({'name'=>'keyboards'})
+category1 = Category.new({'category_name'=>'guitars'})
+category2 = Category.new({'category_name'=>'bass'})
+category3 = Category.new({'category_name'=>'drums'})
+category4 = Category.new({'category_name'=>'effect pedals'})
+category5 = Category.new({'category_name'=>'keyboards'})
 
 category1.save()
 category2.save()
 category3.save()
 category4.save()
+category5.save()
 
-user1= User.new({'name'=>'John Smith','email_address'=> 'johnsmith@ordinaryman.com'})
+#binding.pry()
 
-user2= User.new({'name'=>'Maria Chavez', 'email_address'=> 'mariachavez@ordinaryman.com'})
+user1= User.new({'name'=>'John Smith','email_address'=> 'johnsmith@ordinaryman.com', 'active_flag'=>true})
+
+user2= User.new({'name'=>'Maria Chavez', 'email_address'=> 'mariachavez@ordinaryman.com', 'active_flag'=>true})
 
 user1.save()
 user2.save()
 
-item1 = Item.new({'item_name'=>'Casio Keytar', 'buying_cost'=> 50.00, 'selling_cost'=> 69.00, 'category_id'=>category5.id})
+item1 = MusicItem.new({'item_name'=>'Casio Keytar', 'buying_cost'=> 50.00, 'selling_price'=> 69.00, 'category_id'=>category5.id})
 
-item2 = Item.new({'item_name'=>'Fender Jazzmaster', 'buying_cost'=> 500.00, 'selling_cost'=> 720.00, 'category_id'=>category1.id}) 
+item2 = MusicItem.new({'item_name'=>'Fender Jazzmaster', 'buying_cost'=> 500.00, 'selling_price'=> 720.00, 'category_id'=>category1.id})
+
+item1.save()
+item2.save()
+
+inventory1= Inventory.new({'bought_flag'=>false, 'selling_item_id'=> item1.id, 'seller_user_id'=>user1.id})
+
+inventory2= Inventory.new({'bought_flag'=>false, 'selling_item_id'=> item2.id, 'seller_user_id'=>user2.id})
+
+inventory1.save()
+inventory2.save()
+
+purchase1= Inventory.item_gets_purchased(user1, user2, item1)
+purchase1.save()
+
+binding.pry()
+
+nil

@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS inventory_items;
-DROP TABLE IF EXISTS purchased_items;
 DROP TABLE IF EXISTS music_items;
 DROP TABLE IF EXISTS categories;
 DROP TABLE if exists users;
@@ -7,7 +6,8 @@ DROP TABLE if exists users;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   user_name VARCHAR(255),
-  email_address VARCHAR(255)
+  email_address VARCHAR(255),
+  active_flag BOOLEAN
 );
 
 CREATE TABLE categories (
@@ -25,12 +25,13 @@ CREATE TABLE music_items (
 
 CREATE TABLE inventory_items (
   id SERIAL PRIMARY KEY,
-  item_id INT REFERENCES music_items(id) ON DELETE CASCADE,
-  selling_user INT REFERENCES users(id) ON DELETE CASCADE
+  bought_flag BOOLEAN,
+  selling_item_id INT REFERENCES music_items(id) ON DELETE CASCADE,
+  seller_user_id INT REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE purchased_items (
   id SERIAL PRIMARY KEY,
-  item_id INT REFERENCES music_items(id) ON DELETE CASCADE,
-  buying_user INT REFERENCES users(id) ON DELETE CASCADE
-)
+  bought_item_id INT REFERENCES music_items(id) ON DELETE CASCADE,
+  buyer_user_id INT REFERENCES users(id) ON DELETE CASCADE
+);
