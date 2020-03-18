@@ -20,18 +20,7 @@ CREATE TABLE music_items (
   item_name VARCHAR(255),
   buying_cost FLOAT(2),
   selling_price FLOAT(2),
-  category_id INT REFERENCES categories(id) ON DELETE CASCADE
-);
-
-CREATE TABLE inventory_items (
-  id SERIAL PRIMARY KEY,
   bought_flag BOOLEAN,
-  selling_item_id INT REFERENCES music_items(id) ON DELETE CASCADE,
-  seller_user_id INT REFERENCES users(id) ON DELETE CASCADE
-);
-
-CREATE TABLE purchased_items (
-  id SERIAL PRIMARY KEY,
-  bought_item_id INT REFERENCES music_items(id) ON DELETE CASCADE,
-  buyer_user_id INT REFERENCES users(id) ON DELETE CASCADE
+  category_id INT REFERENCES categories(id) ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE
 );

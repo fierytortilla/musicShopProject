@@ -12,7 +12,9 @@ class MusicItem
     @item_name= options['item_name']
     @buying_cost= options['buying_cost'].to_f()
     @selling_price= options['selling_price'].to_f()
+    @bought_flag= options['bought_flag']
     @category_id= options['category_id']
+    @user_id= options['user_id'].to_i()
   end
 
   def save()

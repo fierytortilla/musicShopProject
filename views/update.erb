@@ -1,6 +1,6 @@
 <h1>THE MUSIC ITEM GOT UPDATED</h1>
 
 <p>The item <%= @music_item.item_name %></p>
-<p>The item currently belongs to <%= @order.quantity %> </p>
+<p>The item currently belongs to <%= User.find_by_id(@music_item.user_id).user_name %> </p>
 
 <hr />
