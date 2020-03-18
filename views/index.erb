@@ -1,0 +1,14 @@
+<h1>CHECK OUT THESE HOT NEW PIECES OF GEAR!!!!</h1>
+
+<ul>
+  <% @inventories.each do |inventory| %>
+    <p>Item Name: <%= MusicItem.find_by_id(inventory.selling_item_id).item_name %></p>
+    <p>Selling Price: <%= MusicItem.find_by_id(inventory.selling_item_id).selling_price %></p>
+    <p>Category: <%= Category.find_by_id(inventory.selling_item_id).name %></p>
+    <p>Seller Name: <%= User.find_by_id(inventory.seller_user_id).user_name %> </p>
+    <p>
+      <a href="/literally_music/<%= inventory.selling_item_id %>">More details</a>
+    </p>
+    <hr />
+  <% end %>
+</ul>

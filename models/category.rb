@@ -47,4 +47,11 @@ class Category
     return sql_results.map{|result| Category.new(result)}
   end
 
+  def self.find_by_id(id)
+    sql= "SELECT * FROM categories WHERE id=$1"
+    values= [id]
+    result= SqlRunner.run(sql, values)
+    return Category.new(result[0])
+  end
+
 end

@@ -19,7 +19,6 @@ class Purchase
           VALUES ($1, $2)
           RETURNING id"
     values=[@bought_item_id, @buyer_user_id]
-    binding.pry()
     @id= SqlRunner.run(sql, values)[0]['id']
   end
 

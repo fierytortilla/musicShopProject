@@ -1,9 +1,11 @@
 require_relative("../db/sql_runner")
+require_relative("inventory")
+require_relative("purchase")
 
 class MusicItem
 
-  attr_reader :id, :category_id
-  attr_accessor :item_name, :buying_cost, :selling_price
+  attr_reader :id
+  attr_accessor :item_name, :buying_cost, :category_id, :selling_price
 
   def initialize(options)
     @id= options['id'].to_i() if options['id']
@@ -43,7 +45,7 @@ class MusicItem
   end
 
   def self.find_by_id(id)
-    sql= "SELECT * FROM students WHERE id=$1"
+    sql= "SELECT * FROM music_items WHERE id=$1"
     values= [id]
     result= SqlRunner.run(sql, values)
     return MusicItem.new(result[0])
@@ -56,6 +58,37 @@ class MusicItem
 
   def self.map_out(sql_results)
     return sql_results.map{|result| MusicItem.new(result)}
+  end
+
+  def self.all_on_sale()
+    sql= "SELECT * FROM music_items WHERE bought_flag= $1"
+    values= [false]
+    results= SqlRunner.run(sql, values)
+    return MusicItem.map_out(results)
+  end
+
+  def find_owner()
+    sql= "SELECT * FROM inventory_items WHERE selling_item_id= $1"
+    values= [@id]
+    result= Inventory.new(SqlRunner.run(sql, values)[0])
+    if result.bought_flag==false
+      return result
+    else
+      sql= "SELECT * FROM purchased_items WHERE bought_item_id= $1"
+      values= [@id]
+      return Purchase.new(SqlRunner.run(sql, values)[0])
+    end
+  end
+
+  def still_on_sale()
+    sql= "SELECT * FROM inventory_items WHERE selling_item_id= $1"
+    values= [@id]
+    result= Inventory.new(SqlRunner.run(sql, values)[0])
+    if result.bought_flag == false
+      return true
+    else
+      return false
+    end
   end
 
 
