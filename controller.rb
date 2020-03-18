@@ -9,43 +9,42 @@ require_relative("models/purchase")
 require_relative("models/inventory")
 also_reload("models/*")
 
-# get("/literally_music") do
-#
-# end
-
-get("/literally_music") do
+#items layer
+get("/literally_music/items") do
   @inventories= Inventory.all()
   erb(:index)
 end
 
-get('/literally_music/:id') do
+get('/literally_music/items/:id') do
   @music_item= MusicItem.find_by_id(params[:id])
   erb(:show)
 end
 
-get('/literally_music/:id/edit') do
+get('/literally_music/items/:id/edit') do
   @music_item= MusicItem.find_by_id(params[:id])
   erb(:edit)
 end
 
-post('/literally_music/:id') do
+post('/literally_music/items/:id') do
   @music_item= MusicItem.new(params)
   @music_item.update()
   erb(:update)
 end
 
-post('/literally_music/:id/delete') do
+post('/literally_music/items/:id/delete') do
   @music_item= MusicItem.find_by_id(params[:id])
   @music_item.delete()
   erb(:destroy)
 end
 
-# get("/literally_music/index") do
-#   @users= User.all()
-#   erb(:index)
-# end
 
-get("/literally_music/new-user") do
+#USERS LAYER
+get("/literally_music/users/index") do
+  @users= User.all()
+  erb(:index)
+end
+
+get("/literally_music/users/new") do
   erb(:new)
 end
 
