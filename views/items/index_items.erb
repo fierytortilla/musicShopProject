@@ -7,7 +7,7 @@
     <p>Category: <%= music_item.find_category_name %></p>
 
 
-    <p>Seller Name: <%= User.find_by_id(music_item.user_id).user_name %> </p>
+    <p>Name of Owner: <%= User.find_by_id(music_item.user_id).user_name %> </p>
     <p>
       <a href="/literally_music/items/<%= music_item.id %>">More details</a>
     </p>

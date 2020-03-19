@@ -13,7 +13,7 @@
       <a href="/literally_music/items/<%= music_item.id %>">More details</a>
     </p>
 
-    <form action="/literally_music/user/<%= @user.id %>/purchases/<%= music_item.id %>" method="post">
+    <form action="/literally_music/users/<%= @user.id %>/buy/<%= music_item.id %>" method="post">
       <button type="submit" name="Buy">BUY THIS</button>
     </form>
     <hr />
