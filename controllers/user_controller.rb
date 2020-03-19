@@ -2,23 +2,23 @@ require("sinatra")
 require('sinatra/contrib/all')
 require('pry-byebug')
 
-require_relative("models/category")
-require_relative("models/user")
-require_relative("models/music_item")
-also_reload("models/*")
+require_relative("../models/category")
+require_relative("../models/user")
+require_relative("../models/music_item")
+also_reload("../models/*")
 
 
 #USERS LAYER
 get("/literally_music/users") do
   @users= User.all()
-  erb(:index_users)
+  erb(:"users/index")
 end
 
 get('/literally_music/users/:id') do
   @user= User.find_by_id(params[:id])
   @music_items_purchased= @user.get_users_purchased_items()
   @music_items_sale= @user.get_users_items_for_sale()
-  erb(:show_user)
+  erb(:"users/show")
 end
 
 get("/literally_music/users/:id/buy") do

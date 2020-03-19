@@ -2,10 +2,10 @@ require("sinatra")
 require('sinatra/contrib/all')
 require('pry-byebug')
 
-require_relative("models/category")
-require_relative("models/user")
-require_relative("models/music_item")
-also_reload("models/*")
+require_relative("../models/category")
+require_relative("../models/user")
+require_relative("../models/music_item")
+also_reload("../models/*")
 
 #items layer
 get("/literally_music/items") do
