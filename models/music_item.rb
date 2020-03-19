@@ -1,6 +1,7 @@
 require_relative("../db/sql_runner")
 require_relative("user")
 require_relative("category")
+require("pry-byebug")
 
 class MusicItem
 

@@ -8,9 +8,15 @@
   <label for="selling-price">Selling Price:</label>
     <input type="float" name="selling_price" id="selling-price">
   <label for="category-name">Category</label>
-    <select name="category_id" id= "category-name">
+    <select type="int" name="category_id" id= "category-name">
         <% @categories.each do |category| %>
         <option value=<% category.id %>> <%= category.name %></option>
+        <% end %>
+    </select>
+  <label for="user-id">User</label>
+    <select type="int" name="user_id" id= "user-id">
+        <% @users.each do |user| %>
+        <option value=<% user.id %>> <%= user.user_name %></option>
         <% end %>
     </select>
   <label for="bought-flag">For sale now?</label>

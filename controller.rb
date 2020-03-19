@@ -19,6 +19,7 @@ get("/literally_music/items") do
 end
 
 get("/literally_music/items/new") do
+  @users= User.all()
   @categories= Category.all()
   erb(:new_item)
 end
