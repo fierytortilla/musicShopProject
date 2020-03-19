@@ -1,0 +1,29 @@
+<h1>LITERALLY AN AWESOME USER OF THIS SITE</h1>
+
+<p>Name: <%= @user.user_name() %></p>
+<p>Email Address: <%= @user.email_address %> </p>
+
+<label for="purchased-items">Purchased Items: </label>
+<ul>
+  <% @music_items.each do |music_item| %>
+    <p>Item Name: <%= music_item.item_name %></p>
+    <p>Buying Cost: <%= music_item.buying_cost %></p>
+    <p>Category: <%= music_item.find_category_name %></p>
+    <hr />
+  <% end %>
+</ul>
+
+<p><a href="/literally_music/users/<%= @user.id %>/buy">Buy cool new gear</a> </p>
+
+
+
+
+<form action="/literally_music/users/<%= @user.id %>/edit" method="post">
+  <button type="submit" name="Edit">Edit this item</button>
+</form>
+
+<form action="/literally_music/users/<%= @user.id %>/delete" method="post">
+  <button type="submit" name="Delete">Delete this item</button>
+</form>
+
+<hr />

@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require_relative("music_item")
 
 class User
 
@@ -56,17 +57,17 @@ class User
   end
 
   def get_users_items_for_sale()
-    sql= "SELECT * FROM inventory_items WHERE seller_user_id=$1"
-    values=[@id]
+    sql= "SELECT * FROM music_items WHERE user_id=$1 AND bought_flag=$2"
+    values=[@id, false]
     items_for_sale= SqlRunner.run(sql, values)
-    return Inventory.map_out(items_for_sale)
+    return MusicItem.map_out(items_for_sale)
   end
 
   def get_users_purchased_items()
-    sql= "SELECT * FROM purchased_items WHERE buyer_user_id=$1"
-    values=[@id]
+    sql= "SELECT * FROM music_items WHERE user_id=$1 AND bought_flag=$2"
+    values=[@id, true]
     purchased_items= SqlRunner.run(sql, values)
-    return Purchase.map_out(purchased_items)
+    return MusicItem.map_out(purchased_items)
   end
 
 end

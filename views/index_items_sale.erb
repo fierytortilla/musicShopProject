@@ -1,9 +1,10 @@
-<h1>CHECK OUT THESE PIECES OF GEAR THAT ARE ON SALE OR HAVE SOLD ON OUR FUNTASTIC SITE!!!!</h1>
+<h1>CHECK OUT THESE HOT NEW PIECES OF GEAR!!!!</h1>
 
 <ul>
   <% @music_items.each do |music_item| %>
     <p>Item Name: <%= music_item.item_name %></p>
-    <p>On Sale: <%= !music_item.bought_flag %></p>
+    <p>Item ID: <%= music_item.id %></p>
+    <p>Selling Price: <%= music_item.selling_price %></p>
     <p>Category: <%= music_item.find_category_name %></p>
 
 
@@ -11,6 +12,10 @@
     <p>
       <a href="/literally_music/items/<%= music_item.id %>">More details</a>
     </p>
+
+    <form action="/literally_music/user/<%= @user.id %>/purchases/<%= music_item.id %>" method="post">
+      <button type="submit" name="Buy">BUY THIS</button>
+    </form>
     <hr />
   <% end %>
 </ul>

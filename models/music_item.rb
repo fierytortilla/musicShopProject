@@ -5,7 +5,7 @@ require_relative("category")
 class MusicItem
 
   attr_reader :id
-  attr_accessor :item_name, :buying_cost, :category_id, :selling_price, :user_id
+  attr_accessor :item_name, :buying_cost, :category_id, :selling_price, :user_id, :bought_flag
 
   def initialize(options)
     @id= options['id'].to_i() if options['id']

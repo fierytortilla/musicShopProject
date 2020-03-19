@@ -1,0 +1,12 @@
+<h1>CHECK OUT THESE HOT USERS OF OUR SITE!!!!</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <p>Name: <%= user.user_name %></p>
+    <p>Email Address: <%= user.email_address %></p>
+    <p>
+      <a href="/literally_music/users/<%= user.id %>">More details</a>
+    </p>
+    <hr />
+  <% end %>
+</ul>

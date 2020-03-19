@@ -1,0 +1,30 @@
+<h1>LITERALLY AN AWESOME MUSICAL ITEM</h1>
+
+<p>Name: <%= @music_item.item_name() %></p>
+<p>Category: <%= @music_item.find_category_name %> </p>
+<form action="/literally_music/items/<%= @music_item.id %>/buy" method="post">
+  <% if @music_item.bought_flag == false %>
+  <button type="submit" name="Delete" disabled>Purchase this item</button>
+  <% elsif @music_item.bought_flag== true %>
+  <button type="submit" name="Delete">Purchase this item</button>
+  <% end %>
+</form>
+
+<% if @music_item.bought_flag == false %>
+    <p>Purchase this item? </p>
+   <!-- <button type="button" disabled>Purchase this item!</button> -->
+ <% elsif @music_item.bought_flag== true %>
+    <!-- <button type="button">Purchase this item!</button> -->
+<% end %>
+
+
+
+<form action="/literally_music/items/<%= @music_item.id %>/edit" method="post">
+  <button type="submit" name="Edit">Edit this item</button>
+</form>
+
+<form action="/literally_music/items/<%= @music_item.id %>/delete" method="post">
+  <button type="submit" name="Delete">Delete this item</button>
+</form>
+
+<hr />
