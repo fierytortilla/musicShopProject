@@ -1,0 +1,16 @@
+<h1>CHECK OUT THESE HOT NEW PIECES OF GEAR!!!!</h1>
+
+<ul>
+  <% @music_items.each do |music_item| %>
+    <p>Item Name: <%= music_item.item_name %></p>
+    <p>Selling Price: <%= music_item.selling_price %></p>
+    <p>Category: <%= music_item.find_category_name %></p>
+
+
+    <p>Seller Name: <%= User.find_by_id(music_item.user_id).user_name %> </p>
+    <p>
+      <a href="/literally_music/items/<%= music_item.id %>">More details</a>
+    </p>
+    <hr />
+  <% end %>
+</ul>

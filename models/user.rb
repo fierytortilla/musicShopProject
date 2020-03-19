@@ -1,17 +1,13 @@
 require_relative("../db/sql_runner")
-require_relative("inventory")
-require_relative("purchase")
 
 class User
 
   attr_reader :id, :user_name, :email_address
-  attr_accessor :active_flag
 
   def initialize(options)
     @id= options['id'].to_i if options['id']
     @user_name= options['user_name']
     @email_address= options['email_address']
-    @active_flag= options['active_flag']
   end
 
   def save()
@@ -20,7 +16,7 @@ class User
           VALUES ($1, $2, $3)
           RETURNING id"
     values=[@user_name, @email_address, @active_flag]
-    @id= SqlRunner.run(sql, values)[0]['id']
+    @id= SqlRunner.run(sql, values)[0]['id'].to_i()
   end
 
   def update()

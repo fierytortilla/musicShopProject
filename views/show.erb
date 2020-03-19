@@ -1,12 +1,12 @@
 <h1>LITERALLY AN AWESOME MUSICAL ITEM</h1>
 
 <p>Name: <%= @music_item.item_name() %></p>
-<p>Category: <%= Category.find_by_id(@music_item.category_id).name %> </p>
+<p>Category: <%= @music_item.find_category_name %> </p>
 <p>Purchase this item? </p>
   <% if @music_item.still_on_sale() == true %>
      <button type="button" disabled>Purchase this item!</button>
    <% elsif @music_item.still_on_sale== false %>
-      <button type="button">Purchase this item!</button> 
+      <button type="button">Purchase this item!</button>
   <% end %>
 
 

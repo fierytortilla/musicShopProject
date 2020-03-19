@@ -5,14 +5,12 @@ require('pry-byebug')
 require_relative("models/category")
 require_relative("models/user")
 require_relative("models/music_item")
-require_relative("models/purchase")
-require_relative("models/inventory")
 also_reload("models/*")
 
 #items layer
 get("/literally_music/items") do
-  @inventories= Inventory.all()
-  erb(:index)
+  @music_items= MusicItem.all()
+  erb(:index_items)
 end
 
 get('/literally_music/items/:id') do
@@ -54,12 +52,6 @@ post("/literally_music") do
   erb(:create)
 end
 
-
-
-# get("/literally_music/items_on_sale") do
-#   @music_items_on_sale= MusicItem.all_sale()
-#   erb(:index)
-# end
 
 get("/literally_music/new-item") do
   erb(:new)

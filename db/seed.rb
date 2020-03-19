@@ -1,15 +1,11 @@
 require_relative("../models/music_item")
 require_relative("../models/user")
 require_relative("../models/category")
-require_relative("../models/inventory")
-require_relative("../models/purchase")
 require("pry-byebug")
 
 MusicItem.delete_all()
 User.delete_all()
 Category.delete_all()
-Inventory.delete_all()
-Purchase.delete_all()
 
 category1 = Category.new({'category_name'=>'guitars'})
 category2 = Category.new({'category_name'=>'bass'})
@@ -25,8 +21,6 @@ category3.save()
 category4.save()
 category5.save()
 category6.save()
-
-#binding.pry()
 
 user1= User.new({'user_name'=>'John Smith','email_address'=> 'johnsmith@ordinaryman.com', 'active_flag'=>true})
 
@@ -47,6 +41,8 @@ item1.save()
 item2.save()
 item3.save()
 item4.save()
+
+
 
 binding.pry()
 
