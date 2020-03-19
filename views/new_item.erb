@@ -1,0 +1,22 @@
+<h1>COME ADD SOME NEW ITEMS TO STOCK</h1>
+
+<form action="/literally_music/items" method="post">
+  <label for="item-name">Name:</label>
+    <input type="text" name="item_name" id= "item-name">
+  <label for="buying-cost">Buying Cost:</label>
+    <input type="float" name="buying_cost" id="buying-cost">
+  <label for="selling-price">Selling Price:</label>
+    <input type="float" name="selling_price" id="selling-price">
+  <label for="category-name">Category</label>
+    <select name="category_id" id= "category-name">
+        <% @categories.each do |category| %>
+        <option value=<% category.id %>> <%= category.name %></option>
+        <% end %>
+    </select>
+  <label for="bought-flag">For sale now?</label>
+    <select type="BOOLEAN" name="bought_flag" id="bought-flag">
+      <option value="false" selected>Yes</option>
+    </select>
+  <input type="submit" value="Add new item">
+    <hr>
+</form>

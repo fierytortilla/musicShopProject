@@ -9,13 +9,13 @@
     <p>Item Name: <%= music_item.item_name %></p>
     <p>Buying Cost: <%= music_item.buying_cost %></p>
     <p>Category: <%= music_item.find_category_name %></p>
-    <hr />
   <% end %>
+  <hr />
 </ul>
 
 <p><a href="/literally_music/users/<%= @user.id %>/buy">Buy cool new gear</a> </p>
 
-
+<p><a href="/literally_music/items/new">Add cool new gear to sell</a> </p>
 
 
 <form action="/literally_music/users/<%= @user.id %>/edit" method="post">
@@ -25,5 +25,3 @@
 <form action="/literally_music/users/<%= @user.id %>/delete" method="post">
   <button type="submit" name="Delete">Delete this item</button>
 </form>
-
-<hr />

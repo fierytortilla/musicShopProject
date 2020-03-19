@@ -1,6 +1,6 @@
 <h1>LITERALLY AN AWESOME MUSICAL ITEM</h1>
 
-<p>Name: <%= @music_item.item_name() %></p>
+<p>Name: <%= @music_item.item_name %></p>
 <p>Category: <%= @music_item.find_category_name %> </p>
 <form action="/literally_music/items/<%= @music_item.id %>/buy" method="post">
   <% if @music_item.bought_flag == false %>

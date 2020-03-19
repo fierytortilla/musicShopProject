@@ -18,7 +18,13 @@ get("/literally_music/items") do
   erb(:index_items)
 end
 
+get("/literally_music/items/new") do
+  @categories= Category.all()
+  erb(:new_item)
+end
+
 get('/literally_music/items/:id') do
+  binding.pry()
   @music_item= MusicItem.find_by_id(params[:id])
   erb(:show_item)
 end
@@ -27,6 +33,7 @@ get('/literally_music/items/:id/edit') do
   @music_item= MusicItem.find_by_id(params[:id])
   erb(:edit)
 end
+
 
 post('/literally_music/items/:id') do
   @music_item= MusicItem.new(params)
@@ -37,7 +44,13 @@ end
 post('/literally_music/items/:id/delete') do
   @music_item= MusicItem.find_by_id(params[:id])
   @music_item.delete()
-  erb(:destroy)
+  redirect ("/literally_music/items")
+end
+
+post('/literally_music/items') do
+  @music_item = MusicItem.new(params)
+  @music_item.save()
+  erb(:create)
 end
 
 
@@ -74,17 +87,6 @@ end
 post("/literally_music/users") do
   @user= User.new(params)
   @user.save()
-  erb(:create)
-end
-
-
-get("/literally_music/new-item") do
-  erb(:new)
-end
-
-post('/literally_music') do
-  @music_item = MusicItem.new(params)
-  @music_item.save()
   erb(:create)
 end
 
