@@ -14,6 +14,10 @@ get("/literally_music/users") do
   erb(:"users/index")
 end
 
+get("/literally_music/users/new") do
+  erb(:"users/new")
+end
+
 get('/literally_music/users/:id') do
   @user= User.find_by_id(params[:id])
   @music_items_purchased= @user.get_users_purchased_items()
@@ -24,8 +28,7 @@ end
 get("/literally_music/users/:id/buy") do
   @user= User.find_by_id(params[:id])
   @music_items= MusicItem.all_on_sale()
-  erb(:index_items_sale)
-  #redirect('/literally_music/users/:id')
+  erb(:"items/index_items_sale")
 end
 
 post("/literally_music/users/:id/buy/:id2") do
@@ -33,23 +36,20 @@ post("/literally_music/users/:id/buy/:id2") do
   @music_item.bought_flag= true
   @music_item.user_id= params[:id]
   @music_item.update()
-  redirect ("/literally_music/users/:id")
+  @user= User.find_by_id(params[:id])
+  @music_items_sale= @user.get_users_items_for_sale()
+  @music_items_purchased= @user.get_users_purchased_items()
+  erb(:"users/show")
 end
 
-# post("/literally_music/users/:id/edit/:id2") do
-#   @music_item= MusicItem.find_by_id(params[:id2])
-#   @music_item.bought_flag= true
-#   @music_item.user_id= params[:id]
-#   @music_item.update()
-#   redirect ("/literally_music/users/:id")
-# end
-
-get("/literally_music/users/new") do
-  erb(:new)
+post("/literally_music/users/:id/delete") do
+  @user= User.find_by_id(params[:id])
+  @user.delete()
+  redirect(:"literally_music/users")
 end
 
 post("/literally_music/users") do
   @user= User.new(params)
   @user.save()
-  erb(:create)
+  redirect(:"/literally_music/users")
 end
