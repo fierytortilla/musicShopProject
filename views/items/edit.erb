@@ -27,6 +27,12 @@
         <% end %>
       <% end %>
     </select>
+  <label for="bought-flag">Bought?:</label>
+    <select name="bought_flag" id=bought-flag selected= <% @music_item.bought_flag %>>
+      <option value=<%= !!@music_item.bought_flag %>> <%= !!@music_item.bought_flag %></option>
+      <option value=<%= !@music_item.bought_flag %>> <%= !@music_item.bought_flag %></option>
+
+    </select>
 
   <input type="submit" value="Edit music_item">
     <hr>

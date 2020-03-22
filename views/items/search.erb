@@ -1,0 +1,8 @@
+<form  method="post" action="/literally_music/items/search_results">
+    <select id="search_category" name="search_category">
+      <% Category.all().each do |category| %>
+        <option value=<%= category.id %>><%= category.name %></option>
+      <% end %>
+    </select>
+  <input  id="button" type="submit" >
+</form>

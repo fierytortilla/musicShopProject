@@ -1,0 +1,10 @@
+<p>Category: <%= @category.name.capitalize %></p>
+<ul>
+  <% if @music_items_results.count==0 %>
+    <p><%= "No items found in that category" %></p>
+  <% else %>
+    <% for music_item in @music_items_results %>
+    <li><%= music_item.item_name %></li>
+    <% end %>
+  <% end %>
+</ul>

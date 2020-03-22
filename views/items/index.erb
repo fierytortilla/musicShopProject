@@ -3,7 +3,6 @@
 <ul>
   <% @music_items.each do |music_item| %>
     <p>Item Name: <%= music_item.item_name %></p>
-    <p>On Sale: <%= !music_item.bought_flag %></p>
     <p>Category: <%= music_item.find_category_name %></p>
 
 
@@ -14,3 +13,5 @@
     <hr />
   <% end %>
 </ul>
+
+<p><a href="/literally_music/items/search">Search items by category</a></p>

@@ -19,6 +19,18 @@ get("/literally_music/items/new") do
   erb(:"items/new")
 end
 
+get('/literally_music/items/search') do
+  erb(:"items/search")
+end
+
+post('/literally_music/items/search_results') do
+  user_search=params[:search_category]
+  puts user_search
+  @category= Category.find_by_id(user_search)
+  @music_items_results= MusicItem.find_by_category(user_search)
+  erb(:"items/search_results")
+end
+
 post('/literally_music/items') do
   @music_item = MusicItem.new(params)
   @music_item.save()
@@ -38,7 +50,7 @@ end
 post('/literally_music/items/:id') do
   @music_item= MusicItem.new(params)
   @music_item.update()
-  erb(:"items/update")
+  redirect("/literally_music/items")
 end
 
 post('/literally_music/items/:id/delete') do
