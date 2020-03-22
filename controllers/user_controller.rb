@@ -48,6 +48,18 @@ post("/literally_music/users/:id/delete") do
   redirect(:"literally_music/users")
 end
 
+get("/literally_music/users/:id/edit") do
+  @user = User.find_by_id(params[:id])
+  erb(:"users/edit")
+end
+
+post('/literally_music/users/:id') do
+  @user= User.new(params)
+  @user.update()
+  redirect(:"/literally_music/users")
+  #erb(:"users/update")
+end
+
 post("/literally_music/users") do
   @user= User.new(params)
   @user.save()

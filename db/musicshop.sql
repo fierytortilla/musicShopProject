@@ -6,8 +6,7 @@ DROP TABLE if exists users;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   user_name VARCHAR(255),
-  email_address VARCHAR(255),
-  active_flag BOOLEAN
+  email_address VARCHAR(255)
 );
 
 CREATE TABLE categories (

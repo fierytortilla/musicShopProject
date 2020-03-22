@@ -13,18 +13,18 @@ class User
 
   def save()
     sql= "INSERT INTO users
-          (user_name, email_address, active_flag)
-          VALUES ($1, $2, $3)
+          (user_name, email_address)
+          VALUES ($1, $2)
           RETURNING id"
-    values=[@user_name, @email_address, @active_flag]
+    values=[@user_name, @email_address]
     @id= SqlRunner.run(sql, values)[0]['id'].to_i()
   end
 
   def update()
     sql= "UPDATE users SET
-          (user_name, email_address, active_flag)
-          = ($1) WHERE id=$2"
-    values= [@category_name, @id]
+          (user_name, email_address)
+          = ($1, $2) WHERE id=$3"
+    values= [@user_name, @email_address, @id]
     SqlRunner.run(sql, values)
   end
 

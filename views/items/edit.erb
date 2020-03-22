@@ -1,19 +1,32 @@
 <h1>OK SO YOU LIED ABOUT YOUR ITEM??? CHANGE IT HERE</h1>
 
-<form action="/literally_music/<%= @music_item.id %>" method="post">
+<form action="/literally_music/items/<%= @music_item.id %>" method="post">
   <label for="item-name">Fist Name:</label>
     <input type="text" name="item_name" id= "item-name" value= <%= @music_item.item_name %>>
-  <label for="selling-price">Age:</label>
+  <label for="selling-price">Selling Price:</label>
     <input type="number" name="selling_price" id="selling-price" value= <%= @music_item.selling_price %>>
-  <label for="category-name">Category :</label>
-    <select name= "category_id" id="category-name" selected=<% @music_item.house_id %>>
+  <label for="buying-cost">Buying Cost:</label>
+    <input type="number" name="buying_cost" id="buying-cost" value= <%= @music_item.buying_cost %>>
+  <label for="category-name">Category:</label>
+    <select name= "category_id" id="category-name" selected=<% @music_item.category_id %>>
       <% Category.all().each do |category|  %>
         <% if category.id == @music_item.category_id %>
-          <option value=<%= house.id %> selected> <%= house.name %></option>
+          <option value=<%= category.id %> selected> <%= category.name %></option>
         <% else %>
-          <option value=<%= house.id %>> <%= house.name %></option>
+          <option value=<%= category.id %>> <%= category.name %></option>
         <% end  %>
       <% end %>
+    </select>
+  <label for="user-name">Owner's Name</label>
+    <select name="user_id" id= "user-name" selected= <% @music_item.user_id %>>
+      <% User.all().each do |user|  %>
+        <% if user.id == @music_item.user_id %>
+          <option value=<%= user.id %> selected> <%= user.user_name %></option>
+        <% else %>
+          <option value=<%= user.id %>> <%= user.user_name %></option>
+        <% end %>
+      <% end %>
+    </select>
 
   <input type="submit" value="Edit music_item">
     <hr>

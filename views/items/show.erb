@@ -10,16 +10,9 @@
   <% end %>
 </form>
 
-<% if @music_item.bought_flag == false %>
-    <p>Purchase this item? </p>
-   <!-- <button type="button" disabled>Purchase this item!</button> -->
- <% elsif @music_item.bought_flag== true %>
-    <!-- <button type="button">Purchase this item!</button> -->
-<% end %>
 
 
-
-<form action="/literally_music/items/<%= @music_item.id %>/edit" method="post">
+<form action="/literally_music/items/<%= @music_item.id %>/edit" method="get">
   <button type="submit" name="Edit">Edit this item</button>
 </form>
 
