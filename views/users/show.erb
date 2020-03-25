@@ -3,10 +3,11 @@
 <p>Name: <%= @user.user_name() %></p>
 <p>Email Address: <%= @user.email_address %> </p>
 
+
 <label for="purchased-items">Purchased Items: </label>
 <ul>
   <% @music_items_purchased.each do |music_item| %>
-    <p>Item Name: <%= music_item.item_name %></p>
+    <li>Item Name: <%= music_item.item_name %></li>
     <p>Buying Cost: <%= music_item.buying_cost %></p>
     <p>Category: <%= music_item.find_category_name %></p>
   <% end %>
@@ -16,7 +17,7 @@
 <label for="items-for-sale">Items for Sale: </label>
 <ul>
   <% @music_items_sale.each do |music_item| %>
-    <p>Item Name: <%= music_item.item_name %></p>
+    <li>Item Name: <%= music_item.item_name %></li>
     <p>Selling Price: <%= music_item.selling_price %></p>
     <p>Category: <%= music_item.find_category_name %></p>
   <% end %>

@@ -3,7 +3,7 @@ require('sinatra/contrib/all')
 require_relative('controllers/music_item_controller')
 require_relative('controllers/user_controller')
 
-get('/') do
+get('/literally_music') do
   erb(:home)
 end
 

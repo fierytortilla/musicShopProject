@@ -83,10 +83,10 @@ class MusicItem
     return category.name
   end
 
-  def self.find_by_category(category_name)
-    sql = "SELECT * FROM music_items
+  def self.find_by_category(category_id)
+    sql = "SELECT music_items.* FROM music_items
           INNER JOIN categories ON categories.id = music_items.category_id WHERE music_items.category_id = $1"
-    values= [category_name]
+    values= [category_id]
     results= SqlRunner.run(sql, values)
     return MusicItem.map_out(results)
   end

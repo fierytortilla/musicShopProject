@@ -25,7 +25,6 @@ end
 
 post('/literally_music/items/search_results') do
   user_search=params[:search_category]
-  puts user_search
   @category= Category.find_by_id(user_search)
   @music_items_results= MusicItem.find_by_category(user_search)
   erb(:"items/search_results")

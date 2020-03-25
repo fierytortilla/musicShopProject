@@ -54,4 +54,11 @@ class Category
     return Category.new(result[0])
   end
 
+  def self.find_by_name(name)
+    sql= "SELECT * FROM categories WHERE category_name=$1"
+    values= [name]
+    result= SqlRunner.run(sql, values)
+    return Category.new(result[0])
+  end
+
 end

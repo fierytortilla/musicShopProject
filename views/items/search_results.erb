@@ -5,6 +5,9 @@
   <% else %>
     <% for music_item in @music_items_results %>
     <li><%= music_item.item_name %></li>
+    <p>
+      <a href="/literally_music/items/<%= music_item.id %>">More details</a>
+    </p>
     <% end %>
   <% end %>
 </ul>
