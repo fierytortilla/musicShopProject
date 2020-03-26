@@ -23,7 +23,7 @@ Possible Extensions
 
 # Tables
 **Site-Map**
-![site-map](/Users/dravis/codeclan_work/musicShopProject/site-map.png "site-map")
+![site-map](site-map.png "site-map")
 
 **Tables in DB**
-![tables](/Users/dravis/codeclan_work/musicShopProject/uml-design1.png "tables")
+![tables](uml-design1.png "tables")
