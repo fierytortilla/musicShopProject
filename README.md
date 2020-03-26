@@ -23,7 +23,7 @@ Possible Extensions
 
 # Tables
 **Site-Map**
-![site-map](/Users/dravis/codeclan_work/musicShopProject/site-map.png "site-map")
+![site-map](https://user-images.githubusercontent.com/29728677/77705921-d5cf0000-6fb8-11ea-807d-d2cc1ef2e94f.png)
 
 **Tables in DB**
 ![tables](/Users/dravis/codeclan_work/musicShopProject/uml-design1.png "tables")
