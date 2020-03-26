@@ -2,8 +2,9 @@
 
 **Music Shop Inventory**
 
-An app will be constructed to allow a music shopkeeper to track their shop's inventory. This is not an app which the customer will see, it is an admin/management app for the shop workers.
-MVP
+An app will be constructed to allow a music shopkeeper to track their shop's inventory (who is buying and who is selling). This is not an app which the customer will see, it is an admin/management app for the shop workers.
+
+##MVP
 
 The inventory should track individual products, including a name, description, stock quantity, buying cost, and selling price.
 The inventory should track manufacturers, including a name and any other appropriate details.
@@ -25,5 +26,5 @@ Possible Extensions
 **Site-Map**
 ![site-map](https://user-images.githubusercontent.com/29728677/77705921-d5cf0000-6fb8-11ea-807d-d2cc1ef2e94f.png)
 
-**Tables in DB**
-![tables](/Users/dravis/codeclan_work/musicShopProject/uml-design1.png "tables")
+**UML of Models in DB**
+![uml](/Users/dravis/codeclan_work/musicShopProject/uml-design2.png)
