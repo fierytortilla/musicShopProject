@@ -22,11 +22,11 @@ category4.save()
 category5.save()
 category6.save()
 
-user1= User.new({'user_name'=>'John Smith','email_address'=> 'johnsmith@ordinaryperson.com', 'active_flag'=>true})
+user1= User.new({'user_name'=>'John Smith','email_address'=> 'johnsmith@ordinaryperson.com'})
 
-user2= User.new({'user_name'=>'Maria Chavez', 'email_address'=> 'mariachavez@ordinaryperson.com', 'active_flag'=>true})
+user2= User.new({'user_name'=>'Maria Chavez', 'email_address'=> 'mariachavez@ordinaryperson.com'})
 
-user3= User.new({'user_name'=>'Rainger FX', 'email_address'=> 'david@rainger.com', 'active_flag'=>true})
+user3= User.new({'user_name'=>'Rainger FX', 'email_address'=> 'david@rainger.com'})
 
 user1.save()
 user2.save()
