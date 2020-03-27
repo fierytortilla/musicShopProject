@@ -20,11 +20,15 @@ Possible Extensions
 *  Filter the inventory list by manufacturer. For example, provide an option to view all books in stock by a certain author.
 *  Categorise your items. Music gear might be categorised by type (guitar, synthesizer, amplifiers, software...) and might be categorised by manufacturer (Fender, Earthquaker Devices, Blackstar...). Provide an option to filter the inventory list by these categories.
 *  Make it possible for buyer to become a seller and put up their used gear for sale on the site.
-*  If a user is deemed inactive, a sale cannot be made.
 
 # Tables
 **Site-Map**
+
+The tentative site-map.
 ![site-map](https://user-images.githubusercontent.com/29728677/77705921-d5cf0000-6fb8-11ea-807d-d2cc1ef2e94f.png)
 
 **UML of Models in DB**
+
+Each of the models corresponds to a table in the PostGreSQL database which is accessed by our site.
+
 ![uml-design2](https://user-images.githubusercontent.com/29728677/77708010-c0f56b00-6fbe-11ea-8821-1a3ad1ee48d4.png)
