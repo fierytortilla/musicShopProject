@@ -11,16 +11,23 @@
       <li>Item Name: <%= music_item.item_name %></li>
       <p>Buying Cost: <%= music_item.buying_cost %></p>
       <p>Category: <%= music_item.find_category_name %></p>
-  <% end %>
+    <% end %>
+    <% else %>
+      <p><%= "User has no purchased items." %></p>
+    <% end %>
   <hr />
 </ul>
 
 <label for="items-for-sale">Items for Sale: </label>
 <ul>
-  <% @music_items_sale.each do |music_item| %>
-    <li>Item Name: <%= music_item.item_name %></li>
-    <p>Selling Price: <%= music_item.selling_price %></p>
-    <p>Category: <%= music_item.find_category_name %></p>
+  <% if @music_items_sale.length > 0 %>
+    <% @music_items_sale.each do |music_item| %>
+      <li>Item Name: <%= music_item.item_name %></li>
+      <p>Selling Price: <%= music_item.selling_price %></p>
+      <p>Category: <%= music_item.find_category_name %></p>
+    <% end %>
+  <% else %>
+    <p><%= "User has no items for sale." %></p>
   <% end %>
   <hr />
 </ul>
